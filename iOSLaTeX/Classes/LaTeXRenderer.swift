@@ -11,8 +11,6 @@ import WebKit
 
 public class LaTeXRenderer: NSObject {
     public var timeoutInSeconds: Double = 5.0
-    public var delayInMilliseconds: Int = 100 /* see comments to understand usage */
-    
     public fileprivate(set) var isReady: Bool = false
     
     weak private var parentView: UIView! /* needed to speed up rendering process */
@@ -83,20 +81,11 @@ public class LaTeXRenderer: NSObject {
                 self.webView.rightAnchor.constraint(equalTo: self.parentView.rightAnchor, constant: 0)
                 ])
         }
+    
+        self.webView.navigationDelegate = self
+        self.webView.uiDelegate = self
         
-        /*
-         * Figure out why delay is needed here
-         * If no delay, webview will appear for a split second
-         */
-        let delay = DispatchTime.now() + .milliseconds(self.delayInMilliseconds)
-        DispatchQueue.main.asyncAfter(deadline: delay) { [weak self] in
-            guard let strongSelf = self else { return }
-            
-            strongSelf.webView.navigationDelegate = self
-            strongSelf.webView.uiDelegate = self
-            
-            strongSelf.webView.loadHTMLString(webViewHtml, baseURL: webViewBaseUrl)
-        }
+        self.webView.loadHTMLString(webViewHtml, baseURL: webViewBaseUrl)
     }
     
     public func render(_ laTeX: String, completion: @escaping (UIImage?, String?)->()) {
@@ -196,10 +185,10 @@ public class LaTeXRenderer: NSObject {
         self.hidingView?.frame = frameAdjustedForLaTeXSize
         
         /*
-         * If no delay, webview's frame change will not have taken effect yet
+         * Delay needed to wait for above frame changes to take effect
+         * TODO: Why is setNeedsLayout() followed by layoutIfNeeded() not working?
          */
-        let delay = DispatchTime.now() + .milliseconds(self.delayInMilliseconds)
-        DispatchQueue.main.asyncAfter(deadline: delay) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) { [weak self] in
             guard let strongSelf = self else { return }
             
             UIGraphicsBeginImageContextWithOptions(strongSelf.webView.bounds.size, true, 0)
