@@ -24,7 +24,8 @@ class ViewController: UIViewController {
         "$$\\sigma = \\sqrt{\\frac{1}{N}\\sum_{i=1}^N (x_i - \\mu)^2}$$",
         "$$\\neg(P\\land Q) \\iff (\\neg P)\\lor(\\neg Q)$$",
         "$$\\log_b(x) = \\frac{\\log_a(x)}{\\log_a(b)}$$",
-        "$$\\cos(\\theta + \\varphi) = \\cos(\\theta)\\cos(\\varphi) - \\sin(\\theta)\\sin(\\varphi)$$"
+        "$$\\cos(\\theta + \\varphi) = \\cos(\\theta)\\cos(\\varphi) - \\sin(\\theta)\\sin(\\varphi)$$",
+        "[math]By\\: separation\\:of\\:variables\\\\firstly\\:devide\\:by\\:3x\\:we\\:get\\:t^2\\dfrac{dx}{dt}=\\dfrac{1-4x^2}{3x}\\\\separate\\:variables\\: you\\:get\\:\\:\\dfrac{3xdx}{1-4x^2}=\\dfrac{dt}{t^2}\\\\now\\:integrate\\:you\\:get\\\\\\dfrac{3}{8}\\ln(1-4x^2)=\\dfrac{1}{t}+C\\\\or\\:taking\\: exponential\\:of:the\\: equation\\:we\\:get\\:(1-4x^2)^{3/8}=Ce^{1/t}\\\\ifx(1)=1\\:we\\:get\\:C=\\dfrac{-3^{3/8}}{e}[/math]"
     ]
         
     override func viewDidLoad() {
