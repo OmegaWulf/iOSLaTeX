@@ -204,6 +204,14 @@ public class LaTeXRenderer: NSObject {
             completion(image, nil)
         }
     }
+    
+    public func destroy(){
+        self.webView.stopLoading()
+        self.webView.uiDelegate = nil
+        self.webView.navigationDelegate = nil
+        self.webView.configuration.userContentController.removeScriptMessageHandler(forName: self.mathJaxCallbackHandler)
+        self.webView.removeFromSuperview()
+    }
 }
 
 extension LaTeXRenderer: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler {
