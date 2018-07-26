@@ -44,12 +44,7 @@ internal class LaTeXRenderOperation: AsyncOperation {
                 strongSelf.renderedLaTeX = renderedLaTeX
                 strongSelf.error = error
                 
-                /*
-                 * TODO: Why is this delay needed here to avoid wrong cropping size?
-                 */
-                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100), execute: {
-                    strongSelf.finish(true)
-                })
+                strongSelf.finish(true)
             })
         }
     }
