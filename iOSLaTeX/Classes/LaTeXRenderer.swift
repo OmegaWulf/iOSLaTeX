@@ -156,7 +156,7 @@ public class LaTeXRenderer: NSObject {
                 return
         }
         
-        self.getLaTeXImage(withWidth: Int(widthFloat), withHeight: Int(heightFloat)) { [weak self] (image, error) in
+        self.getLaTeXImage(withWidth: widthFloat, withHeight: heightFloat) { [weak self] (image, error) in
             guard let strongSelf = self else { return }
             
             if let error = error {
@@ -179,7 +179,12 @@ public class LaTeXRenderer: NSObject {
         }
     }
     
-    private func getLaTeXImage(withWidth width: Int, withHeight height: Int, completion: @escaping (UIImage?, String?) -> ()) {
+    private func getLaTeXImage(withWidth latexWidth: CGFloat, withHeight latexHeight: CGFloat, completion: @escaping (UIImage?, String?) -> ()) {
+        let scale =  latexWidth / self.webView.frame.width
+        
+        let width = latexWidth > self.webView.frame.width ? latexWidth : self.webView.frame.width
+        let height = latexHeight > self.webView.frame.height ? latexHeight : self.webView.frame.height
+        
         let frameAdjustedForLaTeXSize = CGRect(origin: webView.frame.origin, size: CGSize(width: width, height: height))
         self.webView.frame = frameAdjustedForLaTeXSize
         self.hidingView?.frame = frameAdjustedForLaTeXSize
@@ -200,11 +205,54 @@ public class LaTeXRenderer: NSObject {
             }
             
             UIGraphicsEndImageContext()
+                        
+            guard let croppedImage = strongSelf.crop(image, toWidth: latexWidth, andHeight: latexHeight) else {
+                completion(nil, "Failure while cropping WKWebView snapshot")
+                return
+            }
+
+            guard let resizedImage = strongSelf.resize(croppedImage, withScale: scale) else {
+                completion(nil, "Failure while resizing cropped WKWebView snapshot")
+                return
+            }
             
-            completion(image, nil)
+            completion(resizedImage, nil)
         }
     }
     
+    private func crop(_ image: UIImage, toWidth width: CGFloat, andHeight height: CGFloat) -> UIImage? {
+        guard let cgImage = image.cgImage else {
+            return nil
+        }
+        
+        let cgImageWidth = cgImage.width
+        let cgImageHeight = cgImage.height
+        
+        let cropWidth =  width / image.size.width * CGFloat(cgImageWidth)
+        let cropHeight =   height / image.size.height * CGFloat(cgImageHeight)
+        let cropRect = CGRect(x: 0, y: 0, width: cropWidth, height: cropHeight)
+        
+        guard let croppedCgImage = cgImage.cropping(to: cropRect) else {
+            return nil
+        }
+        
+        return UIImage(cgImage: croppedCgImage)
+    }
+    
+    private func resize(_ image: UIImage, withScale scale: CGFloat) -> UIImage? {
+        let newWidth = image.size.width * scale
+        let newHeight = image.size.height * scale
+        let newSize = CGSize(width: newWidth, height: newHeight)
+        
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
+        image.draw(in: CGRect(origin: CGPoint.zero, size: newSize))
+
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return resizedImage
+    }
+
     public func destroy(){
         self.webView.stopLoading()
         self.webView.uiDelegate = nil
@@ -228,7 +276,5 @@ extension LaTeXRenderer: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         self.isReady = false
     }
 }
-
-
 
 
