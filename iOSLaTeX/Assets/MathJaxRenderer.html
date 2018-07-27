@@ -53,11 +53,13 @@
 
                 function sendRenderCompletedSignalToiOSApp() {
                     try {
-                        var latexDiv = document.getElementById('latex-view');
-                        var width = latexDiv.clientWidth;
-                        var height = latexDiv.clientHeight;
-                        
-                        webkit.messageHandlers.callbackHandler.postMessage('{"height":' + height + ',"width":' + width + '}');
+                        setTimeout(function () {
+                            var latexDiv = document.getElementById('latex-view');
+                            var width = latexDiv.clientWidth;
+                            var height = latexDiv.clientHeight;
+                            
+                            webkit.messageHandlers.callbackHandler.postMessage('{"height":' + height + ',"width":' + width + '}');
+                        }, 50);
                     } catch(err) {
                         console.log('Sending Render Completed Signal to iOS App failed');
                     }
@@ -89,7 +91,8 @@
     
     <body>
         
-        <div id='latex-view'></div>
+        <div id='latex-view'>
+        </div>
         
     </body>
 </html>
