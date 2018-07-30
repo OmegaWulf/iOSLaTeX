@@ -46,7 +46,7 @@ class ViewController: UIViewController {
             return
         }
         
-        self.exampleLaTeXArray = data.components(separatedBy: .newlines)
+        self.exampleLaTeXArray = data.components(separatedBy: .newlines).filter { !$0.isEmpty }
     }
     
     func renderLaTeX(_ laTeX: String){
