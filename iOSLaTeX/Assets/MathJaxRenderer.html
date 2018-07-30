@@ -66,11 +66,21 @@
                 }
             </script>
 
-            <script type="text/x-mathjax-config">
+             <script type="text/x-mathjax-config">
                 MathJax.Hub.Config({
                     messageStyle: "none",
-                    tex2jax: { inlineMath: [['$','$'],['\\(','\\)'], ['[math]','[/math]']], preview: "none" },
-                    CommonHTML: { scale: 115 }
+                    tex2jax: {
+                        inlineMath: [ ['$','$'],['\\(','\\)'], ['[math]','[/math]'], ['[[m]]', '[[m]]']],
+                        displayMath: [ ['$$', '$$'] ]
+                    },
+                    TeX: {
+                        Macros: {
+                            textless: "{<}",
+                            textgreater: "{>}",
+                            textdegree: "˚"
+                        }
+                    },
+                    "HTML-CSS": { linebreaks: { automatic: true }}
                 });
 
                 MathJax.Hub.Startup.signal.Interest(
@@ -86,7 +96,7 @@
                 );
             </script>
             
-            <script type="text/javascript" async src="mathjax/MathJax.js?config=TeX-AMS_CHTML-full"></script>
+            <script type="text/javascript" async src="mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full.js"></script>
 
     </head>
     

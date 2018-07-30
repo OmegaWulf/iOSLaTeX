@@ -25,7 +25,8 @@ class ViewController: UIViewController {
         "$$\\neg(P\\land Q) \\iff (\\neg P)\\lor(\\neg Q)$$",
         "$$\\log_b(x) = \\frac{\\log_a(x)}{\\log_a(b)}$$",
         "$$\\cos(\\theta + \\varphi) = \\cos(\\theta)\\cos(\\varphi) - \\sin(\\theta)\\sin(\\varphi)$$",
-        "[math]By\\: separation\\:of\\:variables\\\\firstly\\:devide\\:by\\:3x\\:we\\:get\\:t^2\\dfrac{dx}{dt}=\\dfrac{1-4x^2}{3x}\\\\separate\\:variables\\: you\\:get\\:\\:\\dfrac{3xdx}{1-4x^2}=\\dfrac{dt}{t^2}\\\\now\\:integrate\\:you\\:get\\\\\\dfrac{3}{8}\\ln(1-4x^2)=\\dfrac{1}{t}+C\\\\or\\:taking\\: exponential\\:of:the\\: equation\\:we\\:get\\:(1-4x^2)^{3/8}=Ce^{1/t}\\\\ifx(1)=1\\:we\\:get\\:C=\\dfrac{-3^{3/8}}{e}[/math]"
+        "[math]By\\: separation\\:of\\:variables\\\\firstly\\:devide\\:by\\:3x\\:we\\:get\\:t^2\\dfrac{dx}{dt}=\\dfrac{1-4x^2}{3x}\\\\separate\\:variables\\: you\\:get\\:\\:\\dfrac{3xdx}{1-4x^2}=\\dfrac{dt}{t^2}\\\\now\\:integrate\\:you\\:get\\\\\\dfrac{3}{8}\\ln(1-4x^2)=\\dfrac{1}{t}+C\\\\or\\:taking\\: exponential\\:of:the\\: equation\\:we\\:get\\:(1-4x^2)^{3/8}=Ce^{1/t}\\\\ifx(1)=1\\:we\\:get\\:C=\\dfrac{-3^{3/8}}{e}[/math]",
+        "[math]you \\ solve \\ it \\  by \\ substituting \\ the \\ x \\ value \\ you  \\ from \\ first \\ equation \\ so\\ (20x+7)+(3x-27+30)=180\\ we\\ can\\ get \\ x \\ easily\\ 23x+10=180 \\ \\therefore 23x=170  \\ \\therefore x=\\dfrac{170}{23} \\ by\\  substituting \\ in \\ the \\ other\\ equation \\ 7y=15x-42 \\ \\therefore y=\\dfrac{15\\times170}{23\\times7}-6 \\ so \\ you \\ don't \\ need \\ to \\ isolate \\ them[/math]"
     ]
         
     override func viewDidLoad() {
