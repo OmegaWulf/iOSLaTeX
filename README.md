@@ -1,6 +1,6 @@
 # iOSLaTeX
 
-[![CI Status](https://img.shields.io/travis/shujew/iOSLaTeX.svg?style=flat)](https://travis-ci.org/shujew/iOSLaTeX)
+[![CI Status](https://img.shields.io/travis/TeamSlader/iOSLaTeX.svg?style=flat)](https://travis-ci.org/TeamSlader/iOSLaTeX)
 [![Version](https://img.shields.io/cocoapods/v/iOSLaTeX.svg?style=flat)](https://cocoapods.org/pods/iOSLaTeX)
 [![License](https://img.shields.io/cocoapods/l/iOSLaTeX.svg?style=flat)](https://cocoapods.org/pods/iOSLaTeX)
 [![Platform](https://img.shields.io/cocoapods/p/iOSLaTeX.svg?style=flat)](https://cocoapods.org/pods/iOSLaTeX)
