@@ -13,6 +13,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		A1EBCC8B210FA2E10037A085 /* example_latex.txt in Resources */ = {isa = PBXBuildFile; fileRef = A1EBCC8A210FA2E10037A085 /* example_latex.txt */; };
 		C4BBA80C4A4E7AB1C3DFA73F /* Pods_iOSLaTeX_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21763B383AC54B856DDC807B /* Pods_iOSLaTeX_Tests.framework */; };
 		CE0C1AA6886FBCFF71B07768 /* Pods_iOSLaTeX_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0040B8D7F50BA5A68BE26CB /* Pods_iOSLaTeX_Example.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		9A285485424D2A0BE8B4DD0D /* Pods-iOSLaTeX_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSLaTeX_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSLaTeX_Example/Pods-iOSLaTeX_Example.release.xcconfig"; sourceTree = "<group>"; };
+		A1EBCC8A210FA2E10037A085 /* example_latex.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example_latex.txt; sourceTree = "<group>"; };
 		B0040B8D7F50BA5A68BE26CB /* Pods_iOSLaTeX_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSLaTeX_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0148BF99273DAA0BD8792D0 /* Pods-iOSLaTeX_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSLaTeX_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSLaTeX_Tests/Pods-iOSLaTeX_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C6735699025C2001626F1960 /* Pods-iOSLaTeX_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSLaTeX_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSLaTeX_Tests/Pods-iOSLaTeX_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A1EBCC8A210FA2E10037A085 /* example_latex.txt */,
 				607FACD41AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -247,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1EBCC8B210FA2E10037A085 /* example_latex.txt in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
