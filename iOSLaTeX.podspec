@@ -26,5 +26,5 @@ Pod::Spec.new do |s|
     
     s.frameworks = 'WebKit'
     
-    s.swift_version = '3.2'
+    s.swift_version = '4.2'
 end

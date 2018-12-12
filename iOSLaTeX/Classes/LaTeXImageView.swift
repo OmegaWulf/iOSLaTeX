@@ -11,15 +11,15 @@ import Foundation
 open class LaTeXImageView: UIImageView {
     private var laTeXRenderer: LaTeXRenderer?
     
-    open weak var heightConstraint: NSLayoutConstraint?
+    @objc open weak var heightConstraint: NSLayoutConstraint?
     
-    open func inject(laTeXRenderer: LaTeXRenderer){
+    @objc open func inject(laTeXRenderer: LaTeXRenderer){
         self.laTeXRenderer = laTeXRenderer
     }
     
-    open var backgroundColorWhileRenderingLaTeX: UIColor? = .white
+    @objc open var backgroundColorWhileRenderingLaTeX: UIColor? = .white
     
-    open var laTeX: String? {
+    @objc open var laTeX: String? {
         didSet {
             if let laTeX = laTeX {
                 self.render(laTeX)
@@ -27,7 +27,7 @@ open class LaTeXImageView: UIImageView {
         }
     }
     
-    open func render(_ laTeX: String, shouldResize: Bool = false, completion: ((String?)->())? = nil) {
+    @objc open func render(_ laTeX: String, shouldResize: Bool = false, completion: ((String?)->())? = nil) {
         if self.laTeXRenderer == nil {
             self.laTeXRenderer = LaTeXRenderer(parentView: self)
         }
@@ -51,7 +51,7 @@ open class LaTeXImageView: UIImageView {
         }
     }
     
-    open func calculateHeight(forImage image: UIImage, withContainerWidth containerWidth: CGFloat) -> CGFloat {
+    @objc open func calculateHeight(forImage image: UIImage, withContainerWidth containerWidth: CGFloat) -> CGFloat {
         let imageHeight = image.size.height
         let imageWidth = image.size.width
         
