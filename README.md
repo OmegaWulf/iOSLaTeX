@@ -26,8 +26,16 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 iOSLaTeX is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
+### Swift 3
+
 ```ruby
-pod 'iOSLaTeX'
+pod 'iOSLaTeX', '~> 0.2'
+```
+
+### Swift 4
+
+```ruby
+pod 'iOSLaTeX', '~> 0.3'
 ```
 
 ## Author
