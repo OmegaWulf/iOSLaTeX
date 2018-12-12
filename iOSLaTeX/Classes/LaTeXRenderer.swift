@@ -10,8 +10,8 @@ import Foundation
 import WebKit
 
 public class LaTeXRenderer: NSObject {
-    public var timeoutInSeconds: Double = 5.0
-    public fileprivate(set) var isReady: Bool = false
+    @objc public var timeoutInSeconds: Double = 5.0
+    @objc public fileprivate(set) var isReady: Bool = false
     
     weak private var parentView: UIView! /* needed to speed up rendering process */
     
@@ -23,11 +23,11 @@ public class LaTeXRenderer: NSObject {
     
     private override init() {}
     
-    var renderCompletionHander: ((UIImage?, String?)->())?
+    @objc var renderCompletionHander: ((UIImage?, String?)->())?
     
     private var renderQueue: OperationQueue! = OperationQueue()
     
-    public init(parentView: UIView) {
+    @objc public init(parentView: UIView) {
         super.init()
         
         self.parentView = parentView
@@ -61,13 +61,13 @@ public class LaTeXRenderer: NSObject {
         self.webView.translatesAutoresizingMaskIntoConstraints = false
         
         self.parentView.addSubview(self.webView)
-        self.parentView.sendSubview(toBack: self.webView)
+        self.parentView.sendSubviewToBack(self.webView)
         
         if #available(iOS 11, *) {
             let guide = self.parentView.safeAreaLayoutGuide
             NSLayoutConstraint.activate([
-                self.webView.topAnchor.constraintEqualToSystemSpacingBelow(guide.topAnchor, multiplier: 1.0),
-                guide.bottomAnchor.constraintEqualToSystemSpacingBelow(self.webView.bottomAnchor, multiplier: 1.0),
+                self.webView.topAnchor.constraint(equalToSystemSpacingBelow: guide.topAnchor, multiplier: 1.0),
+                guide.bottomAnchor.constraint(equalToSystemSpacingBelow: self.webView.bottomAnchor, multiplier: 1.0),
                 self.webView.leftAnchor.constraint(equalTo: self.parentView.leftAnchor, constant: 0),
                 self.webView.rightAnchor.constraint(equalTo: self.parentView.rightAnchor, constant: 0)
                 ])
@@ -88,7 +88,7 @@ public class LaTeXRenderer: NSObject {
         self.webView.loadHTMLString(webViewHtml, baseURL: webViewBaseUrl)
     }
     
-    public func render(_ laTeX: String, completion: @escaping (UIImage?, String?)->()) {
+    @objc public func render(_ laTeX: String, completion: @escaping (UIImage?, String?)->()) {
         let renderOperation = LaTeXRenderOperation(laTeX, withRenderer: self)
         renderOperation.completionBlock = {
             DispatchQueue.main.async {
@@ -99,15 +99,15 @@ public class LaTeXRenderer: NSObject {
         self.renderQueue.addOperation(renderOperation)
     }
     
-    internal func startRendering(_ laTeX: String, completion: @escaping (UIImage?, String?)->()) {
+    @objc internal func startRendering(_ laTeX: String, completion: @escaping (UIImage?, String?)->()) {
         self.renderCompletionHander = completion
         
         self.hidingView = UIView(frame: self.parentView.bounds)
         self.hidingView!.backgroundColor = parentView.backgroundColor
         self.parentView.addSubview(self.hidingView!)
         
-        self.parentView.sendSubview(toBack: self.hidingView!)
-        self.parentView.sendSubview(toBack: self.webView)
+        self.parentView.sendSubviewToBack(self.hidingView!)
+        self.parentView.sendSubviewToBack(self.webView)
         
         self.timeoutTimer?.invalidate()
         self.webView.stopLoading()
@@ -253,7 +253,7 @@ public class LaTeXRenderer: NSObject {
         return resizedImage
     }
 
-    public func destroy(){
+    @objc public func destroy(){
         self.webView.stopLoading()
         self.webView.uiDelegate = nil
         self.webView.navigationDelegate = nil

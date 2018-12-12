@@ -11,10 +11,10 @@ internal class LaTeXRenderOperation: AsyncOperation {
     private var laTeX: String!
     private weak var laTeXRenderer: LaTeXRenderer!
     
-    var renderedLaTeX: UIImage?
-    var error: String?
+    @objc var renderedLaTeX: UIImage?
+    @objc var error: String?
     
-    init(_ laTeX: String, withRenderer laTeXRenderer: LaTeXRenderer) {
+    @objc init(_ laTeX: String, withRenderer laTeXRenderer: LaTeXRenderer) {
         self.laTeX = laTeX
         self.laTeXRenderer = laTeXRenderer
     }
@@ -36,7 +36,7 @@ internal class LaTeXRenderOperation: AsyncOperation {
         }
     }
     
-    func renderLaTeX(){
+    @objc func renderLaTeX(){
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
             
@@ -66,6 +66,6 @@ internal class AsyncOperation: Operation {
         didSet { didChangeValue(forKey: "isFinished") }
     }
     
-    func executing(_ executing: Bool) { _executing = executing }
-    func finish(_ finished: Bool) { _finished = finished }
+    @objc func executing(_ executing: Bool) { _executing = executing }
+    @objc func finish(_ finished: Bool) { _finished = finished }
 }
