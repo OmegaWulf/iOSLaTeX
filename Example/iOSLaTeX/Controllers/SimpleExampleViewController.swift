@@ -9,7 +9,7 @@
 import UIKit
 import iOSLaTeX
 
-class ViewController: UIViewController {
+class SimpleExampleViewController: UIViewController {
 
     @IBOutlet weak var laTeXImageView: LaTeXImageView!
     @IBOutlet weak var textfield: UITextField!

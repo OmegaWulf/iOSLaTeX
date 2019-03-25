@@ -1,19 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zke-GR-L2e">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home-->
+        <scene sceneID="jKu-Ql-OjM">
+            <objects>
+                <viewController id="ZQK-EH-AeY" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pGw-CV-tIP"/>
+                        <viewControllerLayoutGuide type="bottom" id="DAy-vK-r8h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="20Z-0D-4sM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLU-xV-mSv">
+                                <rect key="frame" x="36" y="72" width="303" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0Ox-aD-0zv"/>
+                                </constraints>
+                                <state key="normal" title="SimpleExample"/>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="show" id="1ea-XL-fcu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfk-2V-YV7">
+                                <rect key="frame" x="36" y="142" width="303" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ovp-iC-7Rd"/>
+                                </constraints>
+                                <state key="normal" title="TableViewExample"/>
+                                <connections>
+                                    <segue destination="PvE-oM-zg2" kind="show" id="ZLP-jg-chE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="tLU-xV-mSv" secondAttribute="trailing" constant="20" id="LaB-uQ-6he"/>
+                            <constraint firstItem="tLU-xV-mSv" firstAttribute="top" secondItem="pGw-CV-tIP" secondAttribute="bottom" constant="8" symbolic="YES" id="M6N-t1-sOZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kfk-2V-YV7" secondAttribute="trailing" constant="20" id="WaT-dc-wv2"/>
+                            <constraint firstItem="kfk-2V-YV7" firstAttribute="leading" secondItem="20Z-0D-4sM" secondAttribute="leadingMargin" constant="20" id="kZP-v5-FkW"/>
+                            <constraint firstItem="kfk-2V-YV7" firstAttribute="top" secondItem="tLU-xV-mSv" secondAttribute="bottom" constant="20" id="qmx-g9-hLc"/>
+                            <constraint firstItem="tLU-xV-mSv" firstAttribute="leading" secondItem="20Z-0D-4sM" secondAttribute="leadingMargin" constant="20" id="uSO-Vs-Ud8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Home" id="2Z9-va-JkD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mzX-2F-1Cc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="922.39999999999998" y="440.32983508245883"/>
+        </scene>
+        <!--Simple Example View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="iOSLaTeX_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="SimpleExampleViewController" customModule="iOSLaTeX_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -23,13 +71,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DK2-TD-0jm" customClass="LaTeXImageView" customModule="iOSLaTeX">
-                                <rect key="frame" x="16" y="136" width="343" height="200"/>
+                                <rect key="frame" x="16" y="180" width="343" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="T3m-EG-oRy"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fBf-TF-txe">
-                                <rect key="frame" x="16" y="40" width="343" height="50"/>
+                                <rect key="frame" x="16" y="84" width="343" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="xk2-4P-Za7"/>
                                 </constraints>
@@ -38,7 +86,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ag6-P3-FhZ">
-                                <rect key="frame" x="36" y="98" width="303" height="30"/>
+                                <rect key="frame" x="36" y="142" width="303" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="MTq-ha-44B"/>
                                 </constraints>
@@ -69,7 +117,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="133.5832083958021"/>
+            <point key="canvasLocation" x="2068" y="98.50074962518741"/>
+        </scene>
+        <!--Table Example View Controller-->
+        <scene sceneID="u4U-8R-kXN">
+            <objects>
+                <viewController id="PvE-oM-zg2" customClass="TableExampleViewController" customModule="iOSLaTeX_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4aM-20-Wxf"/>
+                        <viewControllerLayoutGuide type="bottom" id="iwy-vV-rbU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kvJ-mc-jXK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ksa-kr-ZGX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2068" y="814.54272863568224"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="b37-pH-xwx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zke-GR-L2e" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7QS-a5-sfF">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZQK-EH-AeY" kind="relationship" relationship="rootViewController" id="gKe-fs-GzY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mhf-6r-UvJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-16.800000000000001" y="440.32983508245883"/>
         </scene>
     </scenes>
 </document>
