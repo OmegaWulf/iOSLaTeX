@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 open class LaTeXImageView: UIImageView {
     private var laTeXRenderer: LaTeXRenderer?

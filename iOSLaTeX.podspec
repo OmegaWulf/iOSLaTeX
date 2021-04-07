@@ -20,9 +20,9 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = '9.0'
 
-    s.source_files = 'iOSLaTeX/Classes/**/*'
+    s.source_files = 'Sources/iOSLaTeX/Classes/**/*'
 
-    s.resources = ['iOSLaTeX/External/mathjax', 'iOSLaTeX/Assets/*']
+    s.resources = ['Sources/iOSLaTeX/External/mathjax', 'iOSLaTeX/Assets/*']
 
     s.frameworks = 'WebKit'
 
