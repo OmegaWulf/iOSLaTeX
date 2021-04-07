@@ -24,6 +24,9 @@ let package = Package(
       path: "Sources/iOSLaTeX",
       exclude: [
         "External"
+      ],
+      resources: [
+        .process("Assets/MathJaxRenderer.html")
       ]),
     .testTarget(
       name: "iOSLaTeXTests",
