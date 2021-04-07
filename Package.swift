@@ -21,7 +21,10 @@ let package = Package(
     .target(
       name: "iOSLaTeX",
       dependencies: [],
-      path: "Sources/iOSLaTeX"),
+      path: "Sources/iOSLaTeX",
+      resources: [
+        .process("External")
+      ]),
     .testTarget(
       name: "iOSLaTeXTests",
       dependencies: ["iOSLaTeX"]),
