@@ -26,7 +26,7 @@ let package = Package(
         "External"
       ],
       resources: [
-        .process("Assets/MathJaxRenderer.html")
+        .process("Assets")
       ]),
     .testTarget(
       name: "iOSLaTeXTests",
